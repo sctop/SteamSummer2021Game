@@ -1,0 +1,6 @@
+@font-face {font-family: "Noto Sans";src: url(data/fonts/global/NotoSans-Regular.ttf);}
+@font-face {font-family: "Noto Sans";src: url(data/fonts/global/NotoSans-Bold.ttf);font-weight: bold;}
+* {font-family: "Noto Sans", "Alibaba PuhuiTi 2.0";}
+.imageview {max-width: 100%;}
+#credit {font-size: [FONTSIZE_CREDIT]px}
+#contenttable {font-size: [FONTSIZE_TABLE]px}

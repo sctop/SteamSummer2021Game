@@ -10,7 +10,7 @@ class SettingManager(metaclass=Singleton):
         if not os.path.exists(PATH_SETTING):
             os.mkdir(PATH_SETTING)
         try:
-            with open(os.path.join(PATH_SETTING + "global.json"), mode="r", encoding="UTF-8") as file:
+            with open(os.path.join(PATH_SETTING, "global.json"), mode="r", encoding="UTF-8") as file:
                 self.data = json.load(file)
         except FileNotFoundError:
             self._create()
@@ -29,7 +29,7 @@ class SettingManager(metaclass=Singleton):
 
     def _save(self):
         print(self.data)
-        with open(os.path.join(PATH_SETTING + "global.json"), mode="w", encoding="UTF-8") as file:
+        with open(os.path.join(PATH_SETTING, "global.json"), mode="w", encoding="UTF-8") as file:
             json.dump(self.data, file)
 
     @property

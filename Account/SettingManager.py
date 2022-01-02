@@ -8,7 +8,10 @@ class SettingManager(metaclass=Singleton):
 
     def __init__(self):
         if not os.path.exists(PATH_SETTING):
-            os.mkdir(PATH_SETTING)
+            try:
+                os.makedirs(PATH_SETTING, exist_ok=True)
+            except Exception as e:
+                raise e
         try:
             with open(os.path.join(PATH_SETTING, "global.json"), mode="r", encoding="UTF-8") as file:
                 self.data = json.load(file)
@@ -55,4 +58,3 @@ class SettingManager(metaclass=Singleton):
     def defaultLanguage(self, value):
         self.data["DefaultLanguage"] = value
         self._save()
-

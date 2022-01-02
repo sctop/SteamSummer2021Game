@@ -7,7 +7,11 @@ from constant import PATH_SAVE
 class SaveManager:
     def __init__(self, username: str, basepath: str = PATH_SAVE):
         self.filepath = os.path.join(basepath, f"{username}.json")
-        if not os.path.exists(basepath): os.mkdir(basepath)
+        if not os.path.exists(basepath):
+            try:
+                os.makedirs(basepath, exist_ok=True)
+            except Exception as e:
+                raise e
         try:
             with open(self.filepath, mode="r", encoding="UTF-8") as file:
                 self.data = json.load(file)

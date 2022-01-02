@@ -144,7 +144,6 @@ class MainPage:
     def goto_about(self):
         lang = LangString()
         interface_lang = InterfaceLangString()
-        font = FONTNAMES.get_font(lang.get_language_code())
 
         window = QWidget()
         layout = QGridLayout()
@@ -166,6 +165,7 @@ class MainPage:
         html_content = html_content.format(fontsize_22=int(calc_font_size(22)), fontsize_18=int(calc_font_size(18)),
                                            all_font=css_all_font, p_set_font=css_set_p)
         browser_description.setHtml(html_content)
+        browser_description.setOpenExternalLinks(True)
         layout.addWidget(browser_description, 0, 0, 1, 1)
 
         dialog.exec_()

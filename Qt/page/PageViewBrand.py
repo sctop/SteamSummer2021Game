@@ -96,6 +96,7 @@ class PageViewBrand:
             css_content = css_content.replace("[FONTSIZE_TABLE]", str(int(calc_font_size(18))))
             css_content = css_content.replace("[FONTSIZE_CREDIT]", str(int(calc_font_size(10))))
             html_content = html_content.format(css_here=css_content)
+        browser.setOpenExternalLinks(True)
         browser.setHtml(html_content)
         layout.addWidget(browser, 0, 0, 1, 10)
 

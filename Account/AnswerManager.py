@@ -30,8 +30,9 @@ class AnswerManager:
         return brand
 
     def update_choice(self, genre: str, choice: int):
-        self.manager.update_choice(genre, choice)
-        self.update_brand()
+        if self.manager.get_choice(genre) == -1:
+            self.manager.update_choice(genre, choice)
+            self.update_brand()
 
     @property
     def is_finished(self):
